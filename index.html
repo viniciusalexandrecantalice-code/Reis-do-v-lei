@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Reis do Vôlei</title>
+    <!-- Script oficial headless com fallback para garantir o carregamento do recaptcha -->
     <script src="https://www.haxball.com/headless" charset="utf-8"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #121212; color: #fff; text-align: center; padding: 30px; margin: 0; }
@@ -13,7 +14,7 @@
         .url-box { display: none; background: #2d2d2d; border: 2px dashed #00ff00; padding: 15px; margin-top: 25px; border-radius: 6px; word-break: break-all; }
         .url-title { color: #00ff00; font-weight: bold; font-size: 16px; margin: 0 0 10px 0; }
         .url-link { color: #00bfff; font-size: 15px; text-decoration: none; font-weight: bold; }
-        #recaptcha-container { margin-top: 20px; display: inline-block; }
+        #recaptcha-container { margin-top: 20px; display: inline-block; min-height: 80px; }
     </style>
 </head>
 <body>
@@ -25,10 +26,9 @@
         
         <p style="color: #ffcc00; font-weight: bold;">👇 RESOLVA O CAPTCHA ABAIXO PARA PEGAR O LINK DA SALA:</p>
         
-        <!-- O Haxball vai injetar o Captcha automaticamente aqui dentro -->
+        <!-- Contêiner do Captcha -->
         <div id="recaptcha-container"></div>
 
-        <!-- Caixa oculta que aparece com o link da sala pronto -->
         <div class="url-box" id="urlBox">
             <p class="url-title">🚀 SUA SALA ESTÁ ONLINE!</p>
             <p style="color: #fff; margin-bottom: 10px;">Copie o link abaixo para entrar e mandar para a galera:</p>
@@ -37,7 +37,7 @@
     </div>
 
     <script>
-    // Inicializa a sala do Haxball de forma integrada à página do GitHub
+    // Inicialização da sala integrada
     const room = HBInit({
         roomName: "🏐 Reis do Vôlei | 2v2 🏐",
         maxPlayers: 12,
@@ -67,7 +67,6 @@
     room.setScoreLimit(0); 
     room.setTimeLimit(0);
 
-    // Quando você resolve o captcha, essa função roda e exibe o link na tela do GitHub Pages
     room.onRoomLink = function(link) {
         document.getElementById("urlBox").style.display = "block";
         let linkElement = document.getElementById("roomLink");
