@@ -1,0 +1,4 @@
+tasks:
+  - name: Bot Haxball
+    init: npm init -y && npm install haxball.js
+    command: node bot.js
