@@ -6,6 +6,7 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "haxball.js": "*"
+    "haxball.js": "*",
+    "https-proxy-agent": "5.0.1"
   }
 }
