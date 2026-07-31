@@ -6,9 +6,6 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "haxball.js": "*"
-  },
-  "overrides": {
-    "https-proxy-agent": "5.0.1"
+    "puppeteer": "*"
   }
 }
