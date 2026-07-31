@@ -1,6 +1,4 @@
 var HBInit = require("./hbinit.js");
-
-const Haxball = require("haxball.js");
 console.log("Exportações do pacote:", Object.keys(Haxball));
 console.log("Tipo do pacote:", typeof Haxball);
 console.log("HBInit existe?", typeof Haxball.HBInit);
